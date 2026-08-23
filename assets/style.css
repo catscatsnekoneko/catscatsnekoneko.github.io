@@ -1,0 +1,263 @@
+/*
+  配色はアプリアイコンの緑グラデーション (#63B54D -> #1C6B33) に合わせている。
+  ダークテーマは prefers-color-scheme で切り替える。
+*/
+
+:root {
+  --brand: #2e6c3a;
+  --brand-light: #63b54d;
+  --brand-dark: #1c6b33;
+  --bg: #f7fbf2;
+  --surface: #ffffff;
+  --surface-alt: #ebefe6;
+  --text: #191d17;
+  --text-muted: #4b5348;
+  --border: #d7ddd2;
+  --max: 44rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand: #96d59b;
+    --brand-light: #96d59b;
+    --brand-dark: #135225;
+    --bg: #111410;
+    --surface: #1a1c19;
+    --surface-alt: #1e201d;
+    --text: #e1e4db;
+    --text-muted: #b3b9ad;
+    --border: #333630;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo,
+    "Segoe UI", Roboto, sans-serif;
+  line-height: 1.85;
+  font-size: 16px;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---- ヘッダー ---- */
+
+.site-header {
+  background: linear-gradient(135deg, #63b54d 0%, #1c6b33 100%);
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.site-header nav {
+  margin-left: auto;
+  display: flex;
+  gap: 1rem;
+}
+
+.site-header nav a {
+  font-weight: 400;
+  font-size: 0.95rem;
+  opacity: 0.92;
+}
+
+.site-header nav a:hover { opacity: 1; text-decoration: underline; }
+
+/* ---- ヒーロー ---- */
+
+.hero {
+  text-align: center;
+  padding: 3rem 0 2.5rem;
+}
+
+.hero img.icon {
+  width: 108px;
+  height: 108px;
+  border-radius: 24px;
+  display: block;
+  margin: 0 auto 1.25rem;
+}
+
+.hero h1 {
+  font-size: clamp(1.7rem, 6vw, 2.4rem);
+  margin: 0 0 0.5rem;
+  line-height: 1.35;
+}
+
+.hero p.lead {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+/* ---- 本文 ---- */
+
+main { padding-bottom: 4rem; }
+
+h2 {
+  font-size: 1.3rem;
+  margin: 2.5rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--border);
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 1.75rem 0 0.4rem;
+  color: var(--brand);
+}
+
+p { margin: 0.75rem 0; }
+
+ul { padding-left: 1.3rem; }
+li { margin: 0.35rem 0; }
+
+a { color: var(--brand); }
+
+strong { font-weight: 700; }
+
+/* ---- カード ---- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.card h3 { margin-top: 0; }
+
+.app-row {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.app-row img {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  flex-shrink: 0;
+}
+
+.app-row div { flex: 1 1 16rem; }
+.app-row p { margin: 0.25rem 0 0; color: var(--text-muted); font-size: 0.95rem; }
+
+/* ---- スクリーンショット ---- */
+
+.shots {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem 0 1rem;
+  scroll-snap-type: x mandatory;
+}
+
+.shots figure {
+  margin: 0;
+  flex: 0 0 auto;
+  width: 190px;
+  scroll-snap-align: start;
+}
+
+.shots img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.shots figcaption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* ---- 補足の囲み ---- */
+
+.note {
+  background: var(--surface-alt);
+  border-left: 4px solid var(--brand);
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.2rem;
+  margin: 1.5rem 0;
+}
+
+.note p:first-child { margin-top: 0; }
+.note p:last-child { margin-bottom: 0; }
+
+/* ---- 言語切り替え ---- */
+
+.lang-switch {
+  text-align: right;
+  font-size: 0.9rem;
+  margin: 1.25rem 0 0;
+  color: var(--text-muted);
+}
+
+/* ---- フッター ---- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.site-footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-footer a { color: var(--text-muted); }
+
+/* ---- 表 ---- */
+
+.table-scroll { overflow-x: auto; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+  margin: 1rem 0;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--surface-alt); font-weight: 700; }
