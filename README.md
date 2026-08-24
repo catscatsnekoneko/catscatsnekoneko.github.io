@@ -12,10 +12,27 @@ Androidアプリ「マイ電話番号」の紹介と、**プライバシーポ�
 |---|---|
 | `index.html` | トップ |
 | `myphonenumber.html` | アプリ「マイ電話番号」の紹介 |
-| `privacy-policy.html` | プライバシーポリシー（日本語） |
-| `privacy-policy.en.html` | プライバシーポリシー（English） |
+| `privacy/index.html` | プライバシーポリシーの索引 |
+| `privacy/myphonenumber.html` | **マイ電話番号のポリシー**（日本語） |
+| `privacy/myphonenumber.en.html` | 同（English） |
+| `privacy-policy.html` / `.en.html` | 旧URLからのリダイレクト。消さないこと |
 | `assets/style.css` | 全ページ共通のスタイル |
 | `assets/*.png` | アイコンとスクリーンショット |
+
+### プライバシーポリシーは必ずアプリごとに分ける
+
+**1枚にまとめないこと。** アプリによって広告やデータ収集の有無が違うため、
+1枚に詰め込むとどの記述がどのアプリのものか曖昧になる。
+Play Console に登録するURLも、そのアプリ専用のページを指す。
+
+新しいアプリを配信するときは、
+
+1. `privacy/<アプリ名>.html` を作る（既存のものをコピーして中身を実態に合わせる）
+2. `privacy/index.html` のリストに1行足す
+3. そのアプリの Play Console にそのURLを登録する
+
+**既存のポリシーのURLは変えない。** 公開後に変えると、リリース済みのアプリと
+Play Console の登録が食い違う。
 
 ビルドは不要。ファイルをそのまま配信している（`.nojekyll` で Jekyll の処理を止めている）。
 
