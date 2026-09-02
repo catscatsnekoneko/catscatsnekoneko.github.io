@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>歩幅計Pro - cats apk project</title>
+<meta name="description" content="歩幅を推定誤差（±）付きで測るAndroidアプリ。測った基準歩幅を使えば、歩数から距離を逆算できます。測定データは端末内にのみ保存されます。">
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!--
+  日本語の文は1行に収めること。ソースの改行が半角スペースとして描画されるため、
+  文の途中で改行すると余計な空きが出る。
+
+  **このアプリは広告を表示し、位置情報を扱う。** 「マイ電話番号」の書き方を流用しないこと。
+
+  1行目で「歩数計ではない」と言い切っているのは意図的。
+  「歩数計」と1文字違いのため、書かないと確実に誤解される。
+-->
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="./">cats apk project</a>
+    <nav>
+      <a href="./#apps">アプリ</a>
+      <a href="privacy/">プライバシーポリシー</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <img class="icon" src="assets/icon-steplengthpro.png" alt="">
+    <h1>歩幅計Pro</h1>
+    <p class="lead">歩数計ではありません。歩幅そのものを、誤差±付きで測ります。</p>
+  </section>
+
+  <div class="shots">
+    <figure>
+      <img src="assets/shot-steplengthpro-home.png" alt="測定モードと距離を選ぶ画面">
+      <figcaption>距離を入れて歩くだけ</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/shot-steplengthpro-result.png" alt="歩幅76.9cm±0.7cmと品質バッジを表示している結果画面">
+      <figcaption>誤差と品質を添えて出す</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/shot-steplengthpro-history.png" alt="測定履歴が品質バッジ付きで並んでいる画面">
+      <figcaption>履歴は品質つきで残る</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/shot-steplengthpro-analysis.png" alt="ケイデンスと歩幅の散布図と回帰直線">
+      <figcaption>速く歩くほど歩幅は伸びる</figcaption>
+    </figure>
+  </div>
+
+  <h2>「74.2 cm」ではなく「74.2 cm ± 1.6 cm」を出します</h2>
+
+  <p>歩幅は「距離 ÷ 歩数」の割り算です。それだけなら誰でも出せます。</p>
+
+  <p>ただ、同じ「74.2 cm」でも、± 1.6 cm の測定と ± 5.0 cm の測定では意味がまったく違います。<strong>誤差を伏せた数値は、当たっているのか偶然なのか判断できません。</strong>だからこのアプリは、必ず ± を付けて出します。</p>
+
+  <p>品質は「高 / 中 / 低」で表示し、なぜその判定になったのかも添えます。歩数センサーが2系統でずれていた、測定距離が短すぎた、といった理由がその場で分かります。</p>
+
+  <h2>GPSの経路積分をしません</h2>
+
+  <div class="note">
+    <p>GPSの点をつないだ長さを距離とする方法は、測位のブレが<strong>常に距離を伸ばす方向に効きます。</strong>まっすぐ歩いても、実際より数％から十数％長く出ます。</p>
+    <p>このアプリは<strong>始点と終点の2点間距離だけ</strong>を使います。誤差が積み上がらないので、長く歩くほど相対誤差が小さくなります。そのかわり、曲がった経路は測定できません。</p>
+  </div>
+
+  <h2>3つの測り方</h2>
+
+  <ul>
+    <li><strong>既知距離モード</strong> — 距離が判っている場所（トラック、廊下、直線道路）で歩数だけを数えます。GPS不要、屋内可、いちばん正確です</li>
+    <li><strong>GPS直線モード</strong> — 屋外で直線を歩きます。始点と終点で10秒ずつ静止し、測位を平均して精度を上げます</li>
+    <li><strong>歩測モード</strong> — 基準歩幅から、歩数で距離を逆算します。GPS不要。「この道は何メートルあるんだろう」を歩くだけで測れます</li>
+  </ul>
+
+  <h2>条件ごとに基準歩幅を持てます</h2>
+
+  <p>歩幅は歩く速さや靴で変わります。「通常歩行」「ゆっくり」「速歩」のようにプロファイルを分けて、それぞれの基準歩幅を持てます。</p>
+
+  <p>基準歩幅は単純平均ではなく<strong>逆分散加重平均</strong>で求めます。精度の高い測定ほど自動的に重く効くため、条件の悪い測定に引きずられません。明らかな外れ値は自動で除き、一覧では区別して表示します。</p>
+
+  <h2>そのほか</h2>
+
+  <ul>
+    <li>測定中は音声とバイブで案内するので、画面を見ずに歩けます</li>
+    <li>端末をポケットに入れたまま、画面を消したまま測定できます</li>
+    <li>ケイデンス（歩/分）と歩幅の関係を、散布図と回帰直線で見られます</li>
+    <li>履歴はCSVで書き出せます</li>
+    <li>歩幅／ストライド、m／cm／ft-in を切り替えられます</li>
+    <li>配色は「歩幅計Proの配色」と「端末に合わせる」から選べます</li>
+  </ul>
+
+  <h2>ご利用にあたって</h2>
+
+  <ul>
+    <li><strong>歩数センサーを搭載した端末が必要です。</strong>非搭載の端末では測定できません</li>
+    <li>100 m 以上歩くと誤差が小さくなります。50 m 未満では品質が「低」になります</li>
+    <li>省電力設定によっては、画面を消している間にセンサーが止まることがあります。測定が途切れる場合は、本アプリをバッテリー最適化の対象外に設定してください</li>
+  </ul>
+
+  <h2>データの取り扱い</h2>
+
+  <p><strong>測定した内容は端末内にのみ保存されます。</strong>GPS直線モードで取得した緯度経度も含めて、アプリが外部へ送信することはありません。</p>
+
+  <p>ただし<strong>広告を表示するため、広告配信のための情報が収集されます。</strong>詳しくは<a href="privacy/steplengthpro.html">歩幅計Proのプライバシーポリシー</a>をご覧ください。</p>
+
+  <p><strong>測定中は広告を表示しません。</strong>終了ボタンを押すために端末を取り出す場面で、誤って広告に触れてしまうことを避けるためです。</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>cats apk project</span>
+    <span><a href="privacy/steplengthpro.html">プライバシーポリシー</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -12,9 +12,13 @@ Androidアプリ「マイ電話番号」の紹介と、**プライバシーポ�
 |---|---|
 | `index.html` | トップ |
 | `myphonenumber.html` | アプリ「マイ電話番号」の紹介 |
+| `codebook.html` | アプリ「二次元コード帳」の紹介 |
+| `steplengthpro.html` | アプリ「歩幅計Pro」の紹介 |
 | `privacy/index.html` | プライバシーポリシーの索引 |
 | `privacy/myphonenumber.html` | **マイ電話番号のポリシー**（日本語） |
 | `privacy/myphonenumber.en.html` | 同（English） |
+| `privacy/codebook.html` / `.en.html` | **二次元コード帳のポリシー**（広告あり） |
+| `privacy/steplengthpro.html` / `.en.html` | **歩幅計Proのポリシー**（広告あり・位置情報あり） |
 | `privacy-policy.html` / `.en.html` | 旧URLからのリダイレクト。消さないこと |
 | `assets/style.css` | 全ページ共通のスタイル |
 | `assets/*.png` | アイコンとスクリーンショット |
@@ -44,6 +48,18 @@ Play Console の登録が食い違う。
   （`#63B54D` → `#1C6B33`）に合わせている。ダークテーマは `prefers-color-scheme` で切り替わる
 - スクリーンショットに**実在する電話番号を写さない**こと。
   アプリ側リポジトリの `docs/store-assets/README.md` に撮り方をまとめてある
+- **アプリごとに「何を収集するか」が違う。ポリシーを流用しないこと。**
+  「マイ電話番号」は収集なし、「二次元コード帳」は広告あり、
+  「歩幅計Pro」は広告に加えて**位置情報も扱う**（端末内保存だが、CSVに出力される）
+
+### 歩幅計Pro のポリシーで未確定の箇所
+
+**同意管理（UMP）がまだアプリに実装されていない。**
+「二次元コード帳」のポリシーには UMP で同意を確認すると書いてあるが、
+歩幅計Pro に写すと事実と違う記述になるため、あえて書いていない。
+
+UMP を実装したら、または配信国を EEA / 英国以外に限定したら、
+`privacy/steplengthpro.html` と `.en.html` に同意についての節を足すこと。
 
 ## 手元での確認
 
