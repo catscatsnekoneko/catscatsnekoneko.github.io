@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>二次元コード帳 - cats apk project</title>
+<meta name="description" content="読み取った二次元コードを、元と寸分違わない模様のまま集めて持ち歩けるAndroidアプリ。データは端末内にのみ保存されます。">
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!--
+  日本語の文は1行に収めること。ソースの改行が半角スペースとして描画されるため、
+  文の途中で改行すると余計な空きが出る。
+
+  **このアプリは広告を表示する。** 「マイ電話番号」の書き方を流用しないこと。
+-->
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="./">cats apk project</a>
+    <nav>
+      <a href="./#apps">アプリ</a>
+      <a href="privacy/">プライバシーポリシー</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <img class="icon" src="assets/icon-codebook.png" alt="">
+    <h1>二次元コード帳</h1>
+    <p class="lead">紙やカードを1枚ずつ持ち歩くかわりに、端末にまとめて入れておけます。</p>
+  </section>
+
+  <p><a href="https://play.google.com/store/apps/details?id=io.github.catscatsnekoneko.codebook">Google Play で見る</a></p>
+
+  <div class="shots">
+    <figure>
+      <img src="assets/shot-codebook-01-list.png" alt="登録した二次元コードが並んでいる一覧画面">
+      <figcaption>集めて一覧で見渡す</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/shot-codebook-02-display.png" alt="二次元コードを画面いっぱいに表示している画面">
+      <figcaption>読み取り機にかざす</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/shot-codebook-03-detail.png" alt="コードの型番やマス数などを表示している詳細画面">
+      <figcaption>名前や項目を付けて整理</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/shot-codebook-04-set.png" alt="複数のコードをまとめたセットの画面">
+      <figcaption>よく使う組み合わせをセットに</figcaption>
+    </figure>
+  </div>
+
+  <p style="color:var(--text-muted);font-size:0.9rem;margin-top:0">画面のコードは説明用に作ったもので、実在のサービスとは関係ありません。</p>
+
+  <h2>元と寸分違わない模様で表示します</h2>
+
+  <p>このアプリは、読み取った二次元コードの<strong>白黒のマス目そのもの</strong>を保存します。中身を読み取って作り直すのではないので、表示されるのは元とまったく同じ模様です。</p>
+
+  <p>同じ内容を表す二次元コードは無数にあり、作り直すとほぼ必ず別の模様になります。読み取り機によっては模様の違いで挙動が変わることがあるため、このアプリは模様をそのまま持ち歩く方法を選んでいます。</p>
+
+  <h2>登録には同じコードを2回読み取ります</h2>
+
+  <div class="note">
+    <p>撮影時にマス目を1個でも読み違えると、その誤りごと保存されてしまいます。誤り訂正が効くため読み取り自体は成功してしまい、その場では気づけません。</p>
+    <p>そこで、角度や距離を変えて2回読み取り、1マスも違わないことを確かめてから登録します。手間はかかりますが、<strong>後から直せない誤りを防ぐためのものです。</strong></p>
+  </div>
+
+  <h2>できること</h2>
+
+  <ul>
+    <li>名前とタグを付けて分類できます</li>
+    <li>項目を決めて（テキスト・数値・選択肢）、絞り込みや並び替えに使えます</li>
+    <li>よく使う組み合わせを「セット」にまとめ、順に呼び出せます</li>
+    <li>写真を添えて、見た目で見分けられます</li>
+    <li>一覧はつまむと細かく、広げると大きくなります</li>
+    <li>表示中は左右になぞると、前後のコードへそのまま移れます</li>
+    <li>明るい配色と暗い配色を選べます</li>
+  </ul>
+
+  <h2>読み取り機の前で使うための表示</h2>
+
+  <ul>
+    <li>マス目を整数ピクセルに合わせて描画し、にじみを出しません</li>
+    <li>表示中は画面を最大の明るさにし、消灯を抑えます</li>
+    <li>画面の余白（クワイエットゾーン）を規格どおり確保します</li>
+    <li><strong>表示中は広告を出しません</strong></li>
+    <li>大きさを調整でき、ちょうどよい大きさを既定として覚えられます</li>
+  </ul>
+
+  <h2>写真から自動で入力できます</h2>
+
+  <p>コードと一緒に持っているものを撮ると、そこに書かれた文字を読み取って、名前・タグ・備考の候補を出します。</p>
+
+  <p>判定に使う言葉や見た目は<strong>すべて利用者が登録します。</strong>アプリはあらかじめ何も持っていません。候補は確認してから反映するので、勝手に書き換わることはありません。文字の読み取りは端末の中だけで行い、画像を外部へ送信しません。</p>
+
+  <h2>ご利用の前にお読みください</h2>
+
+  <ul>
+    <li><strong>二次元コードを作る機能はありません。</strong>手元にある印刷済みのコードを読み取って登録するアプリです</li>
+    <li><strong>すべての読み取り機で読み取れる保証はありません。</strong>読み取り機の方式や画面の反射により、読めない場合があります</li>
+    <li>共有機能はありません。スクリーンショットも撮れません。登録したコードを外部へ持ち出す経路を、意図的に設けていません</li>
+    <li>対応しているのはQRコードのみです。名称は「二次元コード帳」ですが、DataMatrix などには対応していません</li>
+  </ul>
+
+  <h2>データの取り扱い</h2>
+
+  <ul>
+    <li>登録した内容は<strong>端末内にのみ保存され、外部に送信されることはありません</strong></li>
+    <li>登録した内容はアプリ内でいつでも削除できます。アプリを削除すれば端末内のデータもすべて消えます</li>
+    <li>機種変更に備えて、パスワード付きの暗号化バックアップを書き出せます。<strong>このパスワードを忘れると復元できません</strong></li>
+    <li><strong>このアプリは広告を表示します</strong>（ただし二次元コードを表示している間は表示しません）</li>
+  </ul>
+
+  <p>詳しくは<a href="privacy/codebook.html">二次元コード帳のプライバシーポリシー</a>をご覧ください。</p>
+
+  <h2>権限について</h2>
+
+  <h3>カメラ</h3>
+  <p>二次元コードの読み取りと、アイテムに添える写真の撮影に使います。撮影した画像が端末の外へ送られることはありません。許可しなくても、登録済みの内容の表示とバックアップからの復元は利用できます。</p>
+
+  <h3>そのほか</h3>
+  <p>インターネット接続などの権限は、広告の配信とカメラ機能のために、アプリが利用しているライブラリが必要とするものです。自前で宣言している権限はカメラだけです。</p>
+
+  <h2>対応環境</h2>
+
+  <ul>
+    <li>Android 8.0以降</li>
+    <li>日本語 / English</li>
+  </ul>
+
+  <p style="color:var(--text-muted);font-size:0.9rem">QRコードは株式会社デンソーウェーブの登録商標です。</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>cats apk project</span>
+    <span><a href="privacy/codebook.html">プライバシーポリシー</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
